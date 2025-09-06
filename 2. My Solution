@@ -1,0 +1,40 @@
+# filter by 80%. to take the max scores
+best_math_results = schools[schools["average_math"]>=640]
+# sort the values from highest to lowest
+best_math_schools = best_math_results.sort_values("average_math",ascending=False)
+# change the data type to be data frame type
+best_math_schools = pd.DataFrame(best_math_schools)
+# take only the needed columns
+best_math_schools = best_math_schools[["school_name", "average_math"]]
+
+
+# creat new column of total scores
+schools["total_SAT"] = schools["average_math"]+schools["average_reading"]+schools["average_writing"]
+# sort the values from highest to lowest
+schools_SAT_sorted = schools.sort_values("total_SAT", ascending=False)
+# change to data frame 
+schools_SAT_sorted_df = pd.DataFrame(schools_SAT_sorted)
+# take the highest 10 values
+top_10_schools = schools_SAT_sorted_df.head(10)
+# take the needed columns only
+top_10_schools = top_10_schools[["school_name", "total_SAT"]]
+
+
+# take the mean of total scores for each city(borough) then round to two decimal places
+schools["average_SAT"] = schools.groupby("borough")["total_SAT"].transform("mean")
+schools["average_SAT"] = round(schools["average_SAT"], 2)
+# take the standard deviation for total scores in each city (borough) then round to two decimal places
+schools["std_SAT"] = schools.groupby("borough")["total_SAT"].transform("std")
+schools["std_SAT"] = round(schools["std_SAT"], 2)
+
+
+# take the count of schools in each city(borough) and put it in new column 
+schools["num_schools"] = schools.groupby("borough")["school_name"].transform("count")
+# take the needed columns only
+largest_std_dev = schools[["borough", "num_schools", "average_SAT", "std_SAT"]]
+# take the first row only: because as filterd it will has the highes std value
+largest_std_dev = largest_std_dev.head(1)
+# change to data frame
+largest_std_dev = pd.DataFrame(largest_std_dev)
+
+print(largest_std_dev)
