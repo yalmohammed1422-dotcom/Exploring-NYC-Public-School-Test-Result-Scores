@@ -24,11 +24,6 @@ pandas
 matplotlib
 ```
 
-Install dependencies:
-```bash
-pip install pandas matplotlib
-```
-
 ## Dataset
 
 The analysis expects a DataFrame named `schools` with the following columns:
@@ -57,7 +52,11 @@ best_math_schools = best_math_schools[["school_name", "average_math"]]
 
 **Visualizations**:
 - Top 10 schools by math score (horizontal bar chart)
+<img width="2774" height="1579" alt="image" src="https://github.com/user-attachments/assets/83fa8028-96e3-43a7-b513-31a58e00ccf0" />
+
 - Distribution of math scores for qualifying schools (histogram)
+  <img width="2381" height="1178" alt="image" src="https://github.com/user-attachments/assets/b58f462a-f307-429f-8895-f58d691138c1" />
+
 
 ### Analysis 2: Top 10 Schools by Total SAT Score
 
