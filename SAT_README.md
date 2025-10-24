@@ -55,7 +55,7 @@ best_math_schools = best_math_schools[["school_name", "average_math"]]
 <img width="2774" height="1579" alt="image" src="https://github.com/user-attachments/assets/83fa8028-96e3-43a7-b513-31a58e00ccf0" />
 
 - Distribution of math scores for qualifying schools (histogram)
-  <img width="2381" height="1178" alt="image" src="https://github.com/user-attachments/assets/b58f462a-f307-429f-8895-f58d691138c1" />
+<img width="2381" height="1178" alt="image" src="https://github.com/user-attachments/assets/b58f462a-f307-429f-8895-f58d691138c1" />
 
 
 ### Analysis 2: Top 10 Schools by Total SAT Score
@@ -73,7 +73,10 @@ top_10_schools = schools_SAT_sorted.head(10)[["school_name", "total_SAT"]]
 
 **Visualizations**:
 - Top 10 schools by total SAT (horizontal bar chart with scores)
+<img width="2774" height="1579" alt="image" src="https://github.com/user-attachments/assets/e468a948-a943-4a9e-ac20-5aba9f0ebdf0" />
+
 - Component breakdown for top 3 schools (grouped bar chart)
+<img width="2382" height="1380" alt="image" src="https://github.com/user-attachments/assets/bec0b51d-0332-4132-8803-2f65f451adb3" />
 
 ### Analysis 3: Borough with Largest Variability
 
@@ -92,9 +95,16 @@ largest_std_dev = borough_stats.sort_values("std_SAT", ascending=False).head(1)
 
 **Visualizations**:
 - Average SAT scores by borough (bar chart)
+<img width="2382" height="1178" alt="image" src="https://github.com/user-attachments/assets/dfa57863-3aa6-4027-a09a-198d79639ba3" />
+
 - Standard deviation by borough (bar chart with highlighted max)
+<img width="2381" height="1179" alt="image" src="https://github.com/user-attachments/assets/9dc11f23-b6ad-454d-8d95-2243a0d099b6" />
+
 - Number of schools by borough (bar chart with counts)
+<img width="2382" height="1180" alt="image" src="https://github.com/user-attachments/assets/7934cec2-ab66-4e15-8920-488aa8a5fb56" />
+
 - Comprehensive 4-panel comparison (average, std dev, count, scatter plot)
+<img width="2970" height="2359" alt="image" src="https://github.com/user-attachments/assets/2a721ff2-def9-4f79-8bce-b7b4b706cd17" />
 
 ## Visualizations Summary
 
@@ -109,26 +119,6 @@ The project includes **8 matplotlib visualizations**:
 7. **School Count by Borough** - Shows distribution of schools
 8. **Comprehensive Borough Dashboard** - 4-panel comparison of all metrics
 
-## Usage
-
-1. Load your NYC schools dataset:
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-
-# Load your data
-schools = pd.read_csv('nyc_schools_sat_data.csv')
-
-# Run the analysis script
-# [Run the analysis code]
-```
-
-2. View the automatically generated visualizations
-
-3. Access key findings:
-   - Best math schools list
-   - Top 10 overall schools
-   - Borough with highest variability
 
 ## Key Insights
 
@@ -138,76 +128,9 @@ The analysis reveals:
 - **Borough Variability**: Standard deviation highlights inequality within boroughs
 - **Resource Distribution**: School counts show concentration of educational institutions
 
-## Code Improvements Implemented
-
-Compared to the original code, this version includes:
-- ✅ **Enhanced visualizations**: 8 different charts for comprehensive analysis
-- ✅ **Better sorting**: Proper sorting for standard deviation analysis
-- ✅ **Clear labeling**: All charts include value labels and legends
-- ✅ **Print statements**: Clear console output for key findings
-- ✅ **Color coding**: Consistent color scheme for easy interpretation
-- ✅ **Grid lines**: Improved readability with subtle gridlines
-
-## Potential Further Analysis
-
-- Compare performance trends over multiple years
-- Analyze correlation between school size and performance
-- Investigate relationship between borough funding and SAT scores
-- Examine subject-specific strengths across boroughs
-- Create predictive models for school performance
-
-## Alternative Implementation
-
-For more efficient borough aggregation:
-```python
-# Direct aggregation instead of transform
-borough_summary = schools.groupby('borough').agg({
-    'total_SAT': ['mean', 'std', 'count']
-}).round(2)
-```
-
-## File Structure
-
-```
-project/
-│
-├── sat_analysis_matplotlib.py    # Main analysis script with visualizations
-├── README.md                      # This file
-└── nyc_schools_sat_data.csv      # Your dataset (not included)
-```
-
-## Contributing
-
-Feel free to fork this project and submit pull requests for:
-- Additional visualizations
-- New statistical analyses
-- Performance optimizations
-- Enhanced documentation
-
-## License
-
-This project is open source and available under the MIT License.
-
 ## Author
 
-NYC Schools SAT Analysis Project
-
----
+Yousef Almohammed - NYC Schools SAT Analysis Project
 
 *Analysis of NYC public school SAT performance data for educational insights and planning.*
 
-## Sample Output
-
-```
-Number of schools with average math score >= 640: XX
-
-Top 10 Schools by Total SAT Score:
-                    school_name  total_SAT
-0                School Name 1       2400
-1                School Name 2       2350
-...
-
-Borough with Largest Standard Deviation:
-        borough  num_schools  average_SAT  std_SAT
-XX   Borough Name          YY      1234.56   123.45
-```
